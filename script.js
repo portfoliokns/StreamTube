@@ -1,5 +1,6 @@
 window.onload = function() {
   var button = document.getElementById('button');
+  var player = []
 
   button.addEventListener('click', function(event) {
     event.preventDefault();
@@ -23,9 +24,16 @@ window.onload = function() {
 
     if (videoIDs) {
       for ( var i = 0; i < videoIDs.length; i++ ) {
+        if (player[i]) {
+          player[i].destroy();
+          player[i] = null;
+        }
+      }
+
+      for ( var i = 0; i < videoIDs.length; i++ ) {
         playerId = "multiplayer" + i
         videoId = videoIDs[i]
-        player = new YT.Player(playerId, {
+        player[i] = new YT.Player(playerId, {
           height: height,
           width: width,
           videoId: videoId,
