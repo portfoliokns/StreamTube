@@ -1,8 +1,9 @@
+var player = []
 window.onload = function() {
-  var button = document.getElementById('button');
-  var player = []
+  var multiplayer_start_button = document.getElementById('multiplayer_startbutton');
+  var multiplayer_reset_button = document.getElementById('multiplayer_resetbutton');
 
-  button.addEventListener('click', function(event) {
+  multiplayer_start_button.addEventListener('click', function(event) {
     event.preventDefault();
 
     var videoIDs = []
@@ -31,38 +32,60 @@ window.onload = function() {
     height = document.getElementById('multiplayerheight').value
     width = document.getElementById('multiplayerwidth').value
 
-    if (videoIDs) {
-      for ( var i = 0; i < 4; i++ ) {
-        if (player[i]) {
-          player[i].destroy();
-          player[i] = null;
-        }
-      }
-
-      for ( var i = 0; i < videoIDs.length; i++ ) {
-        playerId = "multiplayer" + i
-        videoId = videoIDs[i]
-        if (!videoId) {
-          continue;
-        }
-        player[i] = new YT.Player(playerId, {
-          height: height,
-          width: width,
-          videoId: videoId,
-          playerVars: {
-            'autoplay': 1, // 自動再生を有効化
-            'loop': 1, // ループ再生
-            'playlist': videoId, //プレイリスト
-            'start': startTime, //開始時刻 
-          },
-        });
-      }
-    }
+    setMultiPlayers(videoIDs, startTime)
   })
+
+  multiplayer_reset_button.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    for (var i = 0; i < 4; i++ ) {
+      str = 'multiplayertext' + i
+      document.getElementById(str).value = ""
+    }
+    initPlayers()
+
+    document.getElementById('multiplayerheight').value = "366"
+    document.getElementById('multiplayerwidth').value = "650"
+  })
+
   console.log('Web Browser Is Ready');
 }
 
 function onYouTubeIframeAPIReady() {
   console.log('YouTube IFrame API Is Ready');
+}
+
+function initPlayers() {
+  for ( var i = 0; i < 4; i++ ) {
+    if (player[i]) {
+      player[i].destroy();
+      player[i] = null;
+    }
+  }
+}
+
+function setMultiPlayers(videoIDs,startTime) {
+  initPlayers()
+  if (videoIDs) {
+
+    for ( var i = 0; i < videoIDs.length; i++ ) {
+      playerId = "multiplayer" + i
+      videoId = videoIDs[i]
+      if (!videoId) {
+        continue;
+      }
+      player[i] = new YT.Player(playerId, {
+        height: height,
+        width: width,
+        videoId: videoId,
+        playerVars: {
+          'autoplay': 1, // 自動再生を有効化
+          'loop': 1, // ループ再生
+          'playlist': videoId, //プレイリスト
+          'start': startTime, //開始時刻 
+        },
+      });
+    }
+  }
 }
 
