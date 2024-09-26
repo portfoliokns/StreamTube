@@ -14,8 +14,11 @@ window.onload = function() {
       url = document.getElementById(str).value
       if (!url) {
         continue;
+      } else if (url.includes('?v=')) {
+        videoID = url.split("?v=")[1].split("&")[0];
+      } else if (url.includes('?si=')) {
+        videoID = url.split("?si=")[0].split("/")[3];
       }
-      videoID = url.split("v=")[1].split("&")[0];
       videoIDs.push(videoID);
     }
     height = document.getElementById('multiplayerheight').value
