@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <title>StreamTube</title>
+  
+</head>
+<body>
+  <header>
+    <a href="/" class="icon">StreamTube</a>
+  </header>
+
+  <div class="main">
+    <div class="multiplayer_blocks">
+      <div class="player_title">
+        マルチプレイヤー
+      </div>
+      <div class="multiplayers">
+        <div class="multiplayer_block">
+          <div class="multiplayer">
+            <div id="multiplayer0"></div>
+          </div>
+          <div class="multiplayer">
+            <div id="multiplayer1"></div>
+          </div>
+        </div>
+        
+        <div class="multiplayer_block">
+          <div class="multiplayers">
+            <div id="multiplayer2"></div>
+          </div>
+          <div class="multiplayer">
+            <div id="multiplayer3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="multiplayertext">
+        <input type="text" id="multiplayertext0" class="multiplayer_url" placeholder="https://www.youtube.com/watch?v=01234567890" value="https://www.youtube.com/watch?v=hyQ3upTWvoE">
+        <input type="text" id="multiplayertext1" class="multiplayer_url" placeholder="https://www.youtube.com/watch?v=01234567890" value="https://www.youtube.com/watch?v=hyQ3upTWvoE">
+        <input type="text" id="multiplayertext2" class="multiplayer_url" placeholder="https://www.youtube.com/watch?v=01234567890" value="https://www.youtube.com/watch?v=hyQ3upTWvoE">
+        <input type="text" id="multiplayertext3" class="multiplayer_url" placeholder="https://www.youtube.com/watch?v=01234567890" value="https://www.youtube.com/watch?v=hyQ3upTWvoE">
+        <input type="number" id="multiplayerheight" class="multiplayer_params" placeholder="高さ" value="400">
+        <input type="number" id="multiplayerwidth" class="multiplayer_params" placeholder="横幅" value="900">
+      </div>
+      <a href="#" id="button" class="button">再生</a>
+    </div>
+    
+  </div>
+
+  <footer>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </footer>
+</body>
+</html>
