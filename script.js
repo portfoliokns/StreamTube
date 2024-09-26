@@ -13,7 +13,6 @@ window.onload = function() {
       str = 'multiplayertext' + i
       url = document.getElementById(str).value
       if (!url) {
-        videoIDs.push("00000000000");
         continue;
       }
       videoID = url.split("v=")[1].split("&")[0];
@@ -23,7 +22,7 @@ window.onload = function() {
     width = document.getElementById('multiplayerwidth').value
 
     if (videoIDs) {
-      for ( var i = 0; i < videoIDs.length; i++ ) {
+      for ( var i = 0; i < 4; i++ ) {
         if (player[i]) {
           player[i].destroy();
           player[i] = null;
@@ -33,6 +32,9 @@ window.onload = function() {
       for ( var i = 0; i < videoIDs.length; i++ ) {
         playerId = "multiplayer" + i
         videoId = videoIDs[i]
+        if (!videoId) {
+          continue;
+        }
         player[i] = new YT.Player(playerId, {
           height: height,
           width: width,
