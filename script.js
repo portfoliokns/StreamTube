@@ -9,6 +9,7 @@ window.onload = function() {
     var str
     var url
     var videoID
+    var startTime
     for (var i = 0; i < 4; i++ ) {
       str = 'multiplayertext' + i
       url = document.getElementById(str).value
@@ -16,8 +17,16 @@ window.onload = function() {
         continue;
       } else if (url.includes('?v=')) {
         videoID = url.split("?v=")[1].split("&")[0];
+        if (url.includes('&t=')) {
+          startTime = url.split("&t=")[1].replace("s","")
+          console.log(startTime)
+        }
       } else if (url.includes('?si=')) {
         videoID = url.split("?si=")[0].split("/")[3];
+        if (url.includes('&t=')) {
+          startTime = url.split("&t=")[1].replace("s","")
+          console.log(startTime)
+        }
       }
       videoIDs.push(videoID);
     }
@@ -46,6 +55,7 @@ window.onload = function() {
             'autoplay': 1, // 自動再生を有効化
             'loop': 1, // ループ再生
             'playlist': videoId, //プレイリスト
+            'start': startTime, //開始時刻 
           },
         });
       }
