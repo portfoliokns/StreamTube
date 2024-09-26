@@ -40,6 +40,7 @@ window.onload = function() {
           playerVars: {
             'autoplay': 1, // 自動再生を有効化
             'loop': 1, // ループ再生
+            'playlist': videoId, //プレイリスト
           },
         });
       }
