@@ -19,13 +19,11 @@ window.onload = function() {
         videoID = url.split("?v=")[1].split("&")[0];
         if (url.includes('&t=')) {
           startTime = url.split("&t=")[1].replace("s","")
-          console.log(startTime)
         }
       } else if (url.includes('?si=')) {
         videoID = url.split("?si=")[0].split("/")[3];
         if (url.includes('&t=')) {
           startTime = url.split("&t=")[1].replace("s","")
-          console.log(startTime)
         }
       }
       videoIDs.push(videoID);
