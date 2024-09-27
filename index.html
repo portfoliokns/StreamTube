@@ -17,7 +17,7 @@
   <div class="main">
     <div class="multiplayer_blocks">
       <div class="player_title">
-        マルチプレイヤー
+        マルチプレーヤー
       </div>
       <div class="multiplayers">
         <div class="multiplayer_block">
@@ -38,16 +38,34 @@
           </div>
         </div>
       </div>
-      <div class="multiplayertext">
-        <input type="text" id="multiplayertext0" class="multiplayer_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext1" class="multiplayer_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext2" class="multiplayer_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext3" class="multiplayer_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="number" id="multiplayerheight" class="multiplayer_params" placeholder="高さ" value="366">
-        <input type="number" id="multiplayerwidth" class="multiplayer_params" placeholder="横幅" value="650">
+      <div>
+        <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="number" id="multiplayerheight" class="player_form" placeholder="高さ" value="366">
+        <input type="number" id="multiplayerwidth" class="player_form" placeholder="横幅" value="650">
         <a href="#" id="multiplayer_startbutton" class="button">再生</a>
         <a href="#" id="multiplayer_resetbutton" class="button">リセット</a>
       </div>
+    </div>
+
+    <div class="clipplayer_block">
+      <div class="player_title">
+        クリッププレーヤー
+      </div>
+      <div id="clipplayer"></div>
+      <div>
+        <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
+        <input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:03:00">
+        <input type="number" id="clipplayer_height" class="player_form" placeholder="高さ" value="671">
+        <input type="number" id="clipplayer_width" class="player_form" placeholder="横幅" value="1192">
+        <a href="#" id="clipplayer_startbutton" class="button">再生</a>
+        <a href="#" id="clipplayer_resetbutton" class="button">リセット</a>
+      </div>
+      
+
     </div>
   </div>
 

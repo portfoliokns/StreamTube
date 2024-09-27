@@ -78,6 +78,7 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 
 .player_title{
@@ -92,14 +93,27 @@ a{
   display: flex;
 }
 
-.multiplayer_url{
+.player_url{
   width: 200px;
   padding: 5px;
   margin: 5px;
 }
 
-.multiplayer_params{
-  width: 40px;
+.player_form{
+  width: 50px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.clipplayer_block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.player_time{
+  width: 80px;
   padding: 5px;
   margin: 5px;
 }
