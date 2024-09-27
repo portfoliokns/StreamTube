@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/clipplayer.css">
+  <script src="../static/js/multiplayer.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <title>StreamTube</title>
+  
+</head>
+<body>
+  <header>
+    <a href="https://github.com/portfoliokns/StreamTube" class="icon">StreamTube</a>
+  </header>
+
+  <div class="main">
+    <div class="multiplayer_blocks">
+      <div class="player_title">
+        マルチプレーヤー
+      </div>
+      <div class="multiplayers">
+        <div class="multiplayer_block">
+          <div class="multiplayer">
+            <div id="multiplayer0"></div>
+          </div>
+          <div class="multiplayer">
+            <div id="multiplayer1"></div>
+          </div>
+        </div>
+        
+        <div class="multiplayer_block">
+          <div class="multiplayers">
+            <div id="multiplayer2"></div>
+          </div>
+          <div class="multiplayer">
+            <div id="multiplayer3"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="number" id="multiplayerheight" class="player_form" placeholder="高さ" value="366">
+        <input type="number" id="multiplayerwidth" class="player_form" placeholder="横幅" value="650">
+        <a href="#" id="multiplayer_startbutton" class="button">再生</a>
+        <a href="#" id="multiplayer_resetbutton" class="button">リセット</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </footer>
+</body>
+</html>

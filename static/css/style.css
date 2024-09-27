@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 12px; 
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header{
+  background-color: lightyellow;
+  width: 100%;
+}
+
+.main{
+  background-color: lightblue;
+  width: 100%;
+  flex-grow: 1;
+}
+
+footer{
+  background-color: lightyellow;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a{
+  text-decoration: none; /* リンクの下線を消す */
+  color: blue; /* リンクの色を指定 */
+}
+
+.icon{
+  padding: 4px 0 4px 10px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.button {
+  background-color: #4CAF50; /* ボタンの背景色 */
+  color: white; /* ボタンの文字色 */
+  padding: 7px 20px; /* ボタンの内側のパディング */
+  text-align: center; /* テキストを中央揃え */
+  text-decoration: none; /* 下線を削除 */
+  display: inline-block; /* インラインブロック */
+  font-size: 14px; /* フォントサイズ */
+  margin: 4px; /* ボタン周囲のマージン */
+  cursor: pointer; /* マウスカーソルをポインターに */
+  border-radius: 4px; /* 角を丸くする */
+  border: 1px solid #4CAF50; /* ボーダー色を背景色と同じに */
+  transition: background-color 0.3s, color 0.3s; /* ホバー時のスムーズな変化 */
+}
+
+.button:hover {
+  background-color: #45a049; /* ホバー時の背景色 */
+  color: white; /* ホバー時の文字色 */
+}
+
+.button:active {
+  background-color: #388e3c; /* クリック時の背景色 */
+  border-color: #388e3c; /* クリック時のボーダー色 */
+}
+
+.player_title{
+  font-size: 18px;
+}
+
+.player_url{
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.player_form{
+  width: 50px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.player_time{
+  width: 80px;
+  padding: 5px;
+  margin: 5px;
+}
