@@ -8,21 +8,23 @@ window.onload = function() {
     event.preventDefault();
 
     var videoIDs = []
+    var startTimes = []
     var str
     var url
     var videoID
     var startTime
     for (var i = 0; i < 4; i++ ) {
-      str = 'multiplayertext' + i
-      url = document.getElementById(str).value
-      videoID = url2videoID(url)
-      startTime = url2startTime(url)
+      str = 'multiplayertext' + i;
+      url = document.getElementById(str).value;
+      videoID = url2videoID(url);
       videoIDs.push(videoID);
+      startTime = url2startTime(url);
+      startTimes.push(startTime);
     }
-    var height = document.getElementById('multiplayerheight').value
-    var width = document.getElementById('multiplayerwidth').value
+    var height = document.getElementById('multiplayerheight').value;
+    var width = document.getElementById('multiplayerwidth').value;
 
-    setMultiPlayers(videoIDs, startTime, height, width)
+    setMultiPlayers(videoIDs, startTimes, height, width);
   })
 
   multiplayer_reset_button.addEventListener('click', function(event) {
@@ -129,13 +131,15 @@ function time2seconds(time) {
 }
 
 var players = [];
-function setMultiPlayers(videoIDs, startTime, height, width) {
+function setMultiPlayers(videoIDs, startTimes, height, width) {
   initMultiPlayers()
   if (videoIDs) {
-
+    var playerId
+    var startTime
     for ( var i = 0; i < videoIDs.length; i++ ) {
       playerId = "multiplayer" + i
       videoId = videoIDs[i]
+      starTime = startTimes[i]
       if (!videoId) {
         continue;
       }
@@ -147,7 +151,7 @@ function setMultiPlayers(videoIDs, startTime, height, width) {
           'autoplay': 1, // 自動再生を有効化
           'loop': 1, // ループ再生
           'playlist': videoId, //プレイリスト
-          'start': startTime, //開始時刻 
+          'start': starTime, //開始時刻 
         },
       });
     }
