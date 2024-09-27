@@ -8,21 +8,23 @@ window.onload = function() {
     event.preventDefault();
 
     var videoIDs = []
+    var startTimes = []
     var str
     var url
     var videoID
     var startTime
     for (var i = 0; i < 4; i++ ) {
-      str = 'multiplayertext' + i
-      url = document.getElementById(str).value
-      videoID = url2videoID(url)
-      startTime = url2startTime(url)
+      str = 'multiplayertext' + i;
+      url = document.getElementById(str).value;
+      videoID = url2videoID(url);
       videoIDs.push(videoID);
+      startTime = url2startTime(url);
+      startTimes.push(startTime);
     }
-    var height = document.getElementById('multiplayerheight').value
-    var width = document.getElementById('multiplayerwidth').value
+    var height = document.getElementById('multiplayerheight').value;
+    var width = document.getElementById('multiplayerwidth').value;
 
-    setMultiPlayers(videoIDs, startTime, height, width)
+    setMultiPlayers(videoIDs, startTimes, height, width);
   })
 
   multiplayer_reset_button.addEventListener('click', function(event) {
@@ -129,13 +131,15 @@ function time2seconds(time) {
 }
 
 var players = [];
-function setMultiPlayers(videoIDs, startTime, height, width) {
+function setMultiPlayers(videoIDs, startTimes, height, width) {
   initMultiPlayers()
   if (videoIDs) {
-
+    var playerId
+    var startTime
     for ( var i = 0; i < videoIDs.length; i++ ) {
       playerId = "multiplayer" + i
       videoId = videoIDs[i]
+      startTime = startTimes[i]
       if (!videoId) {
         continue;
       }
