@@ -139,7 +139,7 @@ function setMultiPlayers(videoIDs, startTimes, height, width) {
     for ( var i = 0; i < videoIDs.length; i++ ) {
       playerId = "multiplayer" + i
       videoId = videoIDs[i]
-      starTime = startTimes[i]
+      startTime = startTimes[i]
       if (!videoId) {
         continue;
       }
@@ -151,7 +151,7 @@ function setMultiPlayers(videoIDs, startTimes, height, width) {
           'autoplay': 1, // 自動再生を有効化
           'loop': 1, // ループ再生
           'playlist': videoId, //プレイリスト
-          'start': starTime, //開始時刻 
+          'start': startTime, //開始時刻 
         },
       });
     }
