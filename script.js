@@ -86,7 +86,6 @@ function initMultiPlayers() {
 }
 
 function initClipPlayer() {
-  //プレーヤー/インターバルを初期化
   if (player) {
     player.destroy();
     player = null;
@@ -191,8 +190,6 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
         }
       }
     });
-  } else {
-    console.error('Null or Undefined videoId = ', videoId);
   }
 }
 
