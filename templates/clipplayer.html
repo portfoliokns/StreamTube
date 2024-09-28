@@ -25,8 +25,8 @@
       <div class="player_title">
         クリッププレーヤー
       </div>
-      <div id="clipplayer"></div>
-      <div>
+      <div id="clipplayer" class="clipplayer"></div>
+      <div class="player_controller">
         <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
         <input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
         <input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:03:00">
@@ -34,6 +34,19 @@
         <input type="number" id="clipplayer_width" class="player_form" placeholder="横幅" value="1192">
         <a href="#" id="clipplayer_startbutton" class="button">再生</a>
         <a href="#" id="clipplayer_resetbutton" class="button">リセット</a>
+      </div>
+      <div class="filter_controller">
+        明るさ: <input id="brightness_slider" type="range" min="0" max="2" step="0.1" value="1" oninput="updateBrightness(this.value)">
+        コントラスト: <input id="contrast_slider" type="range" min="0" max="2" step="0.1" value="1" oninput="updateContrast(this.value)">
+        彩度: <input id="saturate_slider" type="range" min="0" max="2" step="0.1" value="1" oninput="updateSaturate(this.value)">
+        グレースケール: <input id="grayscale_slider" type="range" min="0" max="1" step="0.1" value="0" oninput="updateGrayscale(this.value)">
+        セピア: <input id="sepia_slider" type="range" min="0" max="1" step="0.1" value="0" oninput="updateSepia(this.value)">
+      </div>
+      <div class="filter_controller">
+        色相: <input id="hue_slider" type="range" min="0" max="360" step="0.1" value="0" oninput="updateHueRotate(this.value)">
+        階調: <input id="invert_slider" type="range" min="0" max="1" step="0.1" value="0" oninput="updateInvert(this.value)">
+        ぼかし: <input id="blur_slider" type="range" min="0" max="10" step="0.1" value="0" oninput="updateBlur(this.value)">
+        透明度: <input id="opacity_slider" type="range" min="0" max="1" step="0.1" value="1" oninput="updateOpacity(this.value)">
       </div>
     </div>
   </div>

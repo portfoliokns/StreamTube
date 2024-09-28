@@ -85,6 +85,10 @@ a:hover {
   font-size: 22px;
 }
 
+.player_controller{
+  margin-top: 15px;
+}
+
 .player_url{
   width: 200px;
   padding: 5px;
