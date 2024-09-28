@@ -34,25 +34,6 @@ window.onload = function() {
     clearInterval(loopInterval);
 
     resetFilters();
-    // document.getElementById('brightness_slider').value = initBrightness;
-    // document.getElementById('contrast_slider').value = initContrast;
-    // document.getElementById('saturate_slider').value = initSaturate;
-    // document.getElementById('grayscale_slider').value = initGrayscale;
-    // document.getElementById('sepia_slider').value = initSepia;
-    // document.getElementById('hue_slider').value = initHueRotate;
-    // document.getElementById('invert_slider').value = initInvert;
-    // document.getElementById('blur_slider').value = initBlurred;
-    // document.getElementById('opacity_slider').value = initOpacity;
-
-    // updateBrightness(initBrightness);
-    // updateContrast(initContrast);
-    // updateSaturate(initSaturate);
-    // updateGrayscale(initGrayscale);
-    // updateSepia(initSepia);
-    // updateHueRotate(initHueRotate);
-    // updateInvert(initInvert);
-    // updateBlur(initBlurred);
-    // updateOpacity(initOpacity);
   })
 
   console.log('Web Browser Is Ready');
