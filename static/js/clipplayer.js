@@ -31,6 +31,26 @@ window.onload = function() {
     document.getElementById('clipplayer_width').value = "1192"
     initClipPlayer();
     clearInterval(loopInterval);
+
+    document.getElementById('brightness_slider').value = initBrightness;
+    document.getElementById('contrast_slider').value = initContrast;
+    document.getElementById('saturate_slider').value = initSaturate;
+    document.getElementById('grayscale_slider').value = initGrayscale;
+    document.getElementById('sepia_slider').value = initSepia;
+    document.getElementById('hue_slider').value = initHueRotate;
+    document.getElementById('invert_slider').value = initInvert;
+    document.getElementById('blur_slider').value = initBlurred;
+    document.getElementById('opacity_slider').value = initOpacity;
+
+    updateBrightness(initBrightness);
+    updateContrast(initContrast);
+    updateSaturate(initSaturate);
+    updateGrayscale(initGrayscale);
+    updateSepia(initSepia);
+    updateHueRotate(initHueRotate);
+    updateInvert(initInvert);
+    updateBlur(initBlurred);
+    updateOpacity(initOpacity);
   })
 
   console.log('Web Browser Is Ready');
@@ -113,15 +133,25 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
 }
 
 // 複数のフィルターを適用する関数
-var brightness = 1;
-var contrast = 1;
-var saturate = 1;
-var grayscale = 0;
-var sepia = 0;
-var hueRotate = 0;
-var invert = 0;
-var blurred = 0;
-var opacity = 1;
+var initBrightness = 1;
+var initContrast = 1;
+var initSaturate = 1;
+var initGrayscale = 0;
+var initSepia = 0;
+var initHueRotate = 0;
+var initInvert = 0;
+var initBlurred = 0;
+var initOpacity = 1;
+
+var brightness = initBrightness;
+var contrast = initContrast;
+var saturate = initSaturate;
+var grayscale = initGrayscale;
+var sepia = initSepia;
+var hueRotate = initHueRotate;
+var invert = initInvert;
+var blurred = initBlurred;
+var opacity = initOpacity;
 
 function applyFilters() {
   document.getElementById('clipplayer').style.filter = 
