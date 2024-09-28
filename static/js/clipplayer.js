@@ -4,7 +4,7 @@ window.onload = function() {
 
   clipplayer_start_button.addEventListener('click', function(event) {
     event.preventDefault();
-    
+
     var url
     var videoID
     url = document.getElementById('clipplayer_url').value
@@ -19,6 +19,7 @@ window.onload = function() {
     var width = document.getElementById('clipplayer_width').value
 
     setClipPlayer(videoID, startTime, endTime, height, width)
+    applyFilters();
   })
 
   clipplayer_reset_button.addEventListener('click', function(event) {
@@ -32,25 +33,26 @@ window.onload = function() {
     initClipPlayer();
     clearInterval(loopInterval);
 
-    document.getElementById('brightness_slider').value = initBrightness;
-    document.getElementById('contrast_slider').value = initContrast;
-    document.getElementById('saturate_slider').value = initSaturate;
-    document.getElementById('grayscale_slider').value = initGrayscale;
-    document.getElementById('sepia_slider').value = initSepia;
-    document.getElementById('hue_slider').value = initHueRotate;
-    document.getElementById('invert_slider').value = initInvert;
-    document.getElementById('blur_slider').value = initBlurred;
-    document.getElementById('opacity_slider').value = initOpacity;
+    resetFilters();
+    // document.getElementById('brightness_slider').value = initBrightness;
+    // document.getElementById('contrast_slider').value = initContrast;
+    // document.getElementById('saturate_slider').value = initSaturate;
+    // document.getElementById('grayscale_slider').value = initGrayscale;
+    // document.getElementById('sepia_slider').value = initSepia;
+    // document.getElementById('hue_slider').value = initHueRotate;
+    // document.getElementById('invert_slider').value = initInvert;
+    // document.getElementById('blur_slider').value = initBlurred;
+    // document.getElementById('opacity_slider').value = initOpacity;
 
-    updateBrightness(initBrightness);
-    updateContrast(initContrast);
-    updateSaturate(initSaturate);
-    updateGrayscale(initGrayscale);
-    updateSepia(initSepia);
-    updateHueRotate(initHueRotate);
-    updateInvert(initInvert);
-    updateBlur(initBlurred);
-    updateOpacity(initOpacity);
+    // updateBrightness(initBrightness);
+    // updateContrast(initContrast);
+    // updateSaturate(initSaturate);
+    // updateGrayscale(initGrayscale);
+    // updateSepia(initSepia);
+    // updateHueRotate(initHueRotate);
+    // updateInvert(initInvert);
+    // updateBlur(initBlurred);
+    // updateOpacity(initOpacity);
   })
 
   console.log('Web Browser Is Ready');
@@ -132,7 +134,6 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
   }
 }
 
-// 複数のフィルターを適用する関数
 var initBrightness = 1;
 var initContrast = 1;
 var initSaturate = 1;
@@ -210,4 +211,26 @@ function updateBlur(value) {
 function updateOpacity(value) {
   opacity = value;
   applyFilters();
+}
+
+function resetFilters() {
+  document.getElementById('brightness_slider').value = initBrightness;
+  document.getElementById('contrast_slider').value = initContrast;
+  document.getElementById('saturate_slider').value = initSaturate;
+  document.getElementById('grayscale_slider').value = initGrayscale;
+  document.getElementById('sepia_slider').value = initSepia;
+  document.getElementById('hue_slider').value = initHueRotate;
+  document.getElementById('invert_slider').value = initInvert;
+  document.getElementById('blur_slider').value = initBlurred;
+  document.getElementById('opacity_slider').value = initOpacity;
+
+  updateBrightness(initBrightness);
+  updateContrast(initContrast);
+  updateSaturate(initSaturate);
+  updateGrayscale(initGrayscale);
+  updateSepia(initSepia);
+  updateHueRotate(initHueRotate);
+  updateInvert(initInvert);
+  updateBlur(initBlurred);
+  updateOpacity(initOpacity);
 }
