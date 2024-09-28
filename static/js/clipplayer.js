@@ -112,3 +112,72 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
   }
 }
 
+// 複数のフィルターを適用する関数
+var brightness = 1;
+var contrast = 1;
+var saturate = 1;
+var grayscale = 0;
+var sepia = 0;
+var hueRotate = 0;
+var invert = 0;
+var blurred = 0;
+var opacity = 1;
+
+function applyFilters() {
+  document.getElementById('clipplayer').style.filter = 
+    'brightness(' + brightness + ') ' +
+    'contrast(' + contrast + ') ' +
+    'saturate(' + saturate + ') ' +
+    'grayscale(' + grayscale + ')' +
+    'sepia(' + sepia + ')' + 
+    'hue-rotate(' + hueRotate + ')' +
+    'invert(' + invert + ')' +
+    'blur(' + blurred + ')' +
+    'opacity(' + opacity + ')';
+}
+
+// 各スライダーの値を更新してフィルターを適用
+function updateBrightness(value) {
+  brightness = value;
+  applyFilters();
+}
+
+function updateContrast(value) {
+  contrast = value;
+  applyFilters();
+}
+
+function updateSaturate(value) {
+  saturate = value;
+  applyFilters();
+}
+
+function updateGrayscale(value) {
+  grayscale = value;
+  applyFilters();
+}
+
+function updateSepia(value) {
+  sepia = value;
+  applyFilters();
+}
+
+function updateHueRotate(value) {
+  hueRotate = value + 'deg';
+  applyFilters();
+}
+
+function updateInvert(value) {
+  invert = value;
+  applyFilters();
+}
+
+function updateBlur(value) {
+  blurred = value + 'px';
+  applyFilters();
+}
+
+function updateOpacity(value) {
+  opacity = value;
+  applyFilters();
+}

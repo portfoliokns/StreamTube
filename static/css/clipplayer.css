@@ -4,3 +4,11 @@
   align-items: center;
   margin-top: 10px;
 }
+
+.clipplayer{
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.filter_controller{
+  
+}
