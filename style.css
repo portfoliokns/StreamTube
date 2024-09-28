@@ -15,6 +15,7 @@ body{
 header{
   background-color: lightyellow;
   width: 100%;
+  display: flex;
 }
 
 .main{
@@ -36,10 +37,23 @@ a{
   color: blue; /* リンクの色を指定 */
 }
 
+a:hover {
+  background-color: rgb(249, 249, 204);
+}
+
 .icon{
-  padding: 4px 0 4px 10px;
+  padding: 4px 10px;
   font-size: 20px;
   font-style: italic;
+}
+
+.header_links{
+  padding: 10px 30px 0;
+}
+
+.header_link{
+  font-size: 18px;
+  padding: 0 6px;
 }
 
 .button {
