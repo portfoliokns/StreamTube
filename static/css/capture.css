@@ -1,0 +1,29 @@
+.capture_block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.buttons{
+  display: flex;
+}
+
+canvas {
+  display: none;
+}
+
+.capture_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screenshot {
+  width: 60%;
+  height: 60%;
+  text-align: center;
+  border: 1px solid black;
+}
+
