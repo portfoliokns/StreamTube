@@ -11,11 +11,12 @@ window.onload = function() {
         audio: false,
       });
 
-      //
+      //ビデオタグ設定
       var video = document.createElement('video');
       video.srcObject = stream;
       video.play();
 
+      //canvas設定
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
 
