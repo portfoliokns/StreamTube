@@ -70,6 +70,33 @@ window.onload = function() {
     URL.revokeObjectURL(url);
   })
 
+  clipplayer_import_button.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var inputFile = document.getElementById('clipplayer_file');
+    var file = inputFile.files[0];
+    if (!file) {
+      alert('ファイルが選択されていません。ファイルを選択しなおしてください。')
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+          importedHistory = JSON.parse(e.target.result);
+          document.getElementById('clipplayer_url').value = importedHistory[0].url;
+          document.getElementById('clipplayer_starttime').value = importedHistory[0].startTime;
+          document.getElementById('clipplayer_endtime').value = importedHistory[0].endTime;
+          document.getElementById('clipplayer_height').value = importedHistory[0].height;
+          document.getElementById('clipplayer_width').value = importedHistory[0].width;
+          clipplayer_start_button.click();
+      } catch (error) {
+          alert("ファイルの読み込みに失敗しました。JSON形式か確認してください。");
+      }
+    };
+    reader.readAsText(file);
+  })
+
   console.log('Web Browser Is Ready');
 }
 
