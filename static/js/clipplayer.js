@@ -29,7 +29,7 @@ window.onload = function() {
 
     document.getElementById('clipplayer_url').value = ""
     document.getElementById('clipplayer_starttime').value = "00:00:00:00"
-    document.getElementById('clipplayer_endtime').value = "00:00:03:00"
+    document.getElementById('clipplayer_endtime').value = "00:01:00:00"
     document.getElementById('clipplayer_height').value = "671"
     document.getElementById('clipplayer_width').value = "1192"
     initClipPlayer();
