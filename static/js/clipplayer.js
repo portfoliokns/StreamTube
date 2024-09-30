@@ -1,6 +1,8 @@
 window.onload = function() {
   var clipplayer_start_button = document.getElementById('clipplayer_startbutton');
   var clipplayer_reset_button = document.getElementById('clipplayer_resetbutton');
+  var clipplayer_export_button =document.getElementById('clipplayer_exportbutton');
+  var clipplayer_import_button =document.getElementById('clipplayer_importbutton');
 
   clipplayer_start_button.addEventListener('click', function(event) {
     event.preventDefault();
@@ -27,13 +29,77 @@ window.onload = function() {
 
     document.getElementById('clipplayer_url').value = ""
     document.getElementById('clipplayer_starttime').value = "00:00:00:00"
-    document.getElementById('clipplayer_endtime').value = "00:00:03:00"
+    document.getElementById('clipplayer_endtime').value = "00:01:00:00"
     document.getElementById('clipplayer_height').value = "671"
     document.getElementById('clipplayer_width').value = "1192"
     initClipPlayer();
     clearInterval(loopInterval);
 
     resetFilters();
+  })
+
+  clipplayer_export_button.addEventListener('click', function(event){
+    event.preventDefault();
+
+    var url = document.getElementById('clipplayer_url').value
+    var startTime = document.getElementById('clipplayer_starttime').value
+    var endTime = document.getElementById('clipplayer_endtime').value
+    var height = document.getElementById('clipplayer_height').value
+    var width = document.getElementById('clipplayer_width').value
+    if (!url || !startTime || !endTime || !height || !width) {
+      alert('パラメータが正しく入力されていません。正しい値を入力してください。')
+      return;
+    }
+
+    var brightness = document.getElementById('brightness_slider').value
+    var contrast = document.getElementById('contrast_slider').value
+    var saturate = document.getElementById('saturate_slider').value
+    var grayscale = document.getElementById('grayscale_slider').value
+    var sepia = document.getElementById('sepia_slider').value
+    var hue = document.getElementById('hue_slider').value
+    var invert = document.getElementById('invert_slider').value
+    var blur = document.getElementById('blur_slider').value
+    var opacity = document.getElementById('opacity_slider').value
+    changeJson(url, startTime, endTime, height, width, brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity);
+  })
+
+  clipplayer_import_button.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var inputFile = document.getElementById('clipplayer_file');
+    var file = inputFile.files[0];
+    if (!file) {
+      alert('ファイルが選択されていません。ファイルを選択しなおしてください。')
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+          importedHistory = JSON.parse(e.target.result);
+          document.getElementById('clipplayer_url').value = importedHistory[0].url;
+          document.getElementById('clipplayer_starttime').value = importedHistory[0].startTime;
+          document.getElementById('clipplayer_endtime').value = importedHistory[0].endTime;
+          document.getElementById('clipplayer_height').value = importedHistory[0].height;
+          document.getElementById('clipplayer_width').value = importedHistory[0].width;
+
+          var brightness = importedHistory[0].brightness;
+          var contrast = importedHistory[0].contrast;
+          var saturate = importedHistory[0].saturate;
+          var grayscale = importedHistory[0].grayscale;
+          var sepia = importedHistory[0].sepia;
+          var hue = importedHistory[0].hue;
+          var invert = importedHistory[0].invert;
+          var blur = importedHistory[0].blur;
+          var opacity = importedHistory[0].opacity;
+          importFilters(brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity);
+
+          clipplayer_start_button.click();
+      } catch (error) {
+          alert("ファイルの読み込みに失敗しました。JSON形式か確認してください。");
+      }
+    };
+    reader.readAsText(file);
   })
 
   console.log('Web Browser Is Ready');
@@ -113,6 +179,39 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
       }
     });
   }
+}
+
+function changeJson(url, startTime, endTime, height, width, brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity) {
+  //保存パラメータを形成
+  var history = [{
+    url: url,
+    startTime: startTime,
+    endTime: endTime,
+    height: height,
+    width: width,
+    brightness: brightness,
+    contrast: contrast,
+    saturate: saturate,
+    grayscale: grayscale,
+    sepia: sepia,
+    hue: hue,
+    invert: invert,
+    blur: blur,
+    opacity: opacity
+  }]
+  
+  //JSON形式に変換
+  var jsonContent = JSON.stringify(history, null, 2);
+  var blob = new Blob([jsonContent], {type: "application/json"});
+  var jsonUrl = URL.createObjectURL(blob);
+  
+  //JSONファイルをダウンロード
+  var link = document.createElement("a");
+  link.href = jsonUrl;
+  link.download = "export.json";
+  link.click();
+  
+  URL.revokeObjectURL(url);
 }
 
 var initBrightness = 1;
@@ -214,4 +313,26 @@ function resetFilters() {
   updateInvert(initInvert);
   updateBlur(initBlurred);
   updateOpacity(initOpacity);
+}
+
+function importFilters(brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity) {
+  document.getElementById('brightness_slider').value = brightness;
+  document.getElementById('contrast_slider').value = contrast;
+  document.getElementById('saturate_slider').value = saturate;
+  document.getElementById('grayscale_slider').value = grayscale;
+  document.getElementById('sepia_slider').value = sepia;
+  document.getElementById('hue_slider').value = hue;
+  document.getElementById('invert_slider').value = invert;
+  document.getElementById('blur_slider').value = blur;
+  document.getElementById('opacity_slider').value = opacity;
+
+  updateBrightness(brightness);
+  updateContrast(contrast);
+  updateSaturate(saturate);
+  updateGrayscale(grayscale);
+  updateSepia(sepia);
+  updateHueRotate(hue);
+  updateInvert(invert);
+  updateBlur(blur);
+  updateOpacity(opacity);
 }

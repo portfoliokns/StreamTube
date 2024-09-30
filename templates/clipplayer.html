@@ -30,11 +30,14 @@
       <div class="player_controller">
         <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
         <input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
-        <input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:03:00">
+        <input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:01:00:00">
         <input type="number" id="clipplayer_height" class="player_form" placeholder="高さ" value="671">
         <input type="number" id="clipplayer_width" class="player_form" placeholder="横幅" value="1192">
         <a href="#" id="clipplayer_startbutton" class="button">再生</a>
         <a href="#" id="clipplayer_resetbutton" class="button">リセット</a>
+        <a href="#" id="clipplayer_exportbutton" class="button">エクスポート</a>
+        <a href="#" id="clipplayer_importbutton" class="button">インポート</a>
+        <input type="file" id="clipplayer_file" accept=".json">
       </div>
       <div class="filter_controller">
         明るさ: <input id="brightness_slider" type="range" min="0" max="2" step="0.1" value="1" oninput="updateBrightness(this.value)">
