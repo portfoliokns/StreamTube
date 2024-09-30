@@ -46,6 +46,15 @@ window.onload = function() {
     var endTime = document.getElementById('clipplayer_endtime').value
     var height = document.getElementById('clipplayer_height').value
     var width = document.getElementById('clipplayer_width').value
+    var brightness = document.getElementById('brightness_slider').value
+    var contrast = document.getElementById('contrast_slider').value
+    var saturate = document.getElementById('saturate_slider').value
+    var grayscale = document.getElementById('grayscale_slider').value
+    var sepia = document.getElementById('sepia_slider').value
+    var hue = document.getElementById('hue_slider').value
+    var invert = document.getElementById('invert_slider').value
+    var blur = document.getElementById('blur_slider').value
+    var opacity = document.getElementById('opacity_slider').value
 
     //保存パラメータを形成
     var history = [{
@@ -54,6 +63,15 @@ window.onload = function() {
       endTime: endTime,
       height: height,
       width: width,
+      brightness: brightness,
+      contrast: contrast,
+      saturate: saturate,
+      grayscale: grayscale,
+      sepia: sepia,
+      hue: hue,
+      invert: invert,
+      blur: blur,
+      opacity: opacity
     }]
 
     //JSON形式に変換
@@ -89,7 +107,21 @@ window.onload = function() {
           document.getElementById('clipplayer_endtime').value = importedHistory[0].endTime;
           document.getElementById('clipplayer_height').value = importedHistory[0].height;
           document.getElementById('clipplayer_width').value = importedHistory[0].width;
+
+          var brightness = importedHistory[0].brightness;
+          var contrast = importedHistory[0].contrast;
+          var saturate = importedHistory[0].saturate;
+          var grayscale = importedHistory[0].grayscale;
+          var sepia = importedHistory[0].sepia;
+          var hue = importedHistory[0].hue;
+          var invert = importedHistory[0].invert;
+          var blur = importedHistory[0].blur;
+          var opacity = importedHistory[0].opacity;
+          importFilters(brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity);
+          
           clipplayer_start_button.click();
+
+          
       } catch (error) {
           alert("ファイルの読み込みに失敗しました。JSON形式か確認してください。");
       }
@@ -275,4 +307,26 @@ function resetFilters() {
   updateInvert(initInvert);
   updateBlur(initBlurred);
   updateOpacity(initOpacity);
+}
+
+function importFilters(brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity) {
+  document.getElementById('brightness_slider').value = brightness;
+  document.getElementById('contrast_slider').value = contrast;
+  document.getElementById('saturate_slider').value = saturate;
+  document.getElementById('grayscale_slider').value = grayscale;
+  document.getElementById('sepia_slider').value = sepia;
+  document.getElementById('hue_slider').value = hue;
+  document.getElementById('invert_slider').value = invert;
+  document.getElementById('blur_slider').value = blur;
+  document.getElementById('opacity_slider').value = opacity;
+
+  updateBrightness(brightness);
+  updateContrast(contrast);
+  updateSaturate(saturate);
+  updateGrayscale(grayscale);
+  updateSepia(sepia);
+  updateHueRotate(hue);
+  updateInvert(invert);
+  updateBlur(blur);
+  updateOpacity(opacity);
 }
