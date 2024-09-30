@@ -1,6 +1,8 @@
 window.onload = function() {
   var clipplayer_start_button = document.getElementById('clipplayer_startbutton');
   var clipplayer_reset_button = document.getElementById('clipplayer_resetbutton');
+  var clipplayer_export_button =document.getElementById('clipplayer_exportbutton');
+  var clipplayer_import_button =document.getElementById('clipplayer_importbutton');
 
   clipplayer_start_button.addEventListener('click', function(event) {
     event.preventDefault();
@@ -34,6 +36,38 @@ window.onload = function() {
     clearInterval(loopInterval);
 
     resetFilters();
+  })
+
+  clipplayer_export_button.addEventListener('click', function(event){
+    event.preventDefault();
+
+    var url = document.getElementById('clipplayer_url').value
+    var startTime = document.getElementById('clipplayer_starttime').value
+    var endTime = document.getElementById('clipplayer_endtime').value
+    var height = document.getElementById('clipplayer_height').value
+    var width = document.getElementById('clipplayer_width').value
+
+    //保存パラメータを形成
+    var history = [{
+      url: url,
+      startTime: startTime,
+      endTime: endTime,
+      height: height,
+      width: width,
+    }]
+
+    //JSON形式に変換
+    var jsonContent = JSON.stringify(history, null, 2);
+    var blob = new Blob([jsonContent], {type: "application/json"});
+    var jsonUrl = URL.createObjectURL(blob);
+    
+    //JSONファイルをダウンロード
+    var link = document.createElement("a");
+    link.href = jsonUrl;
+    link.download = "watch_history.json";
+    link.click();
+
+    URL.revokeObjectURL(url);
   })
 
   console.log('Web Browser Is Ready');
