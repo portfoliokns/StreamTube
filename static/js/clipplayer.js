@@ -46,6 +46,11 @@ window.onload = function() {
     var endTime = document.getElementById('clipplayer_endtime').value
     var height = document.getElementById('clipplayer_height').value
     var width = document.getElementById('clipplayer_width').value
+    if (!url || !startTime || !endTime || !height || !width) {
+      alert('パラメータが正しく入力されていません。正しい値を入力してください。')
+      return;
+    }
+
     var brightness = document.getElementById('brightness_slider').value
     var contrast = document.getElementById('contrast_slider').value
     var saturate = document.getElementById('saturate_slider').value
