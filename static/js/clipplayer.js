@@ -55,37 +55,7 @@ window.onload = function() {
     var invert = document.getElementById('invert_slider').value
     var blur = document.getElementById('blur_slider').value
     var opacity = document.getElementById('opacity_slider').value
-
-    //保存パラメータを形成
-    var history = [{
-      url: url,
-      startTime: startTime,
-      endTime: endTime,
-      height: height,
-      width: width,
-      brightness: brightness,
-      contrast: contrast,
-      saturate: saturate,
-      grayscale: grayscale,
-      sepia: sepia,
-      hue: hue,
-      invert: invert,
-      blur: blur,
-      opacity: opacity
-    }]
-
-    //JSON形式に変換
-    var jsonContent = JSON.stringify(history, null, 2);
-    var blob = new Blob([jsonContent], {type: "application/json"});
-    var jsonUrl = URL.createObjectURL(blob);
-    
-    //JSONファイルをダウンロード
-    var link = document.createElement("a");
-    link.href = jsonUrl;
-    link.download = "watch_history.json";
-    link.click();
-
-    URL.revokeObjectURL(url);
+    changeJson(url, startTime, endTime, height, width, brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity);
   })
 
   clipplayer_import_button.addEventListener('click', function(event) {
@@ -118,10 +88,8 @@ window.onload = function() {
           var blur = importedHistory[0].blur;
           var opacity = importedHistory[0].opacity;
           importFilters(brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity);
-          
-          clipplayer_start_button.click();
 
-          
+          clipplayer_start_button.click();
       } catch (error) {
           alert("ファイルの読み込みに失敗しました。JSON形式か確認してください。");
       }
@@ -206,6 +174,39 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
       }
     });
   }
+}
+
+function changeJson(url, startTime, endTime, height, width, brightness, contrast, saturate, grayscale, sepia, hue, invert, blur, opacity) {
+  //保存パラメータを形成
+  var history = [{
+    url: url,
+    startTime: startTime,
+    endTime: endTime,
+    height: height,
+    width: width,
+    brightness: brightness,
+    contrast: contrast,
+    saturate: saturate,
+    grayscale: grayscale,
+    sepia: sepia,
+    hue: hue,
+    invert: invert,
+    blur: blur,
+    opacity: opacity
+  }]
+  
+  //JSON形式に変換
+  var jsonContent = JSON.stringify(history, null, 2);
+  var blob = new Blob([jsonContent], {type: "application/json"});
+  var jsonUrl = URL.createObjectURL(blob);
+  
+  //JSONファイルをダウンロード
+  var link = document.createElement("a");
+  link.href = jsonUrl;
+  link.download = "export.json";
+  link.click();
+  
+  URL.revokeObjectURL(url);
 }
 
 var initBrightness = 1;
