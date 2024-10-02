@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/style.css">
   <link rel="stylesheet" href="../static/css/clipplayer.css">
+  <script src="../static/js/share.js"></script>
   <script src="../static/js/clipplayer.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <title>StreamTube</title>
@@ -28,16 +29,28 @@
       </div>
       <div id="clipplayer" class="clipplayer"></div>
       <div class="player_controller">
-        <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
-        <input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:01:00:00">
-        <input type="number" id="clipplayer_height" class="player_form" placeholder="高さ" value="671">
-        <input type="number" id="clipplayer_width" class="player_form" placeholder="横幅" value="1192">
-        <a href="#" id="clipplayer_startbutton" class="button">再生</a>
-        <a href="#" id="clipplayer_resetbutton" class="button">リセット</a>
-        <a href="#" id="clipplayer_exportbutton" class="button">エクスポート</a>
-        <a href="#" id="clipplayer_importbutton" class="button">インポート</a>
-        <input type="file" id="clipplayer_file" accept=".json">
+        <form action="#">
+          <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          開始時刻:<input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
+          終了時刻:<input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:01:00:00">
+          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" value="671" oninput="height2Slider(this.value)">
+          <input type="range" id="player_heightslider" min="1" max="1342" step="1" value="671" oninput="slider2Height(this.value)">
+          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" value="1192" oninput="width2Slider(this.value)">
+          <input type="range" id="player_widthslider" min="1" max="2384" step="1" value="1192" oninput="slider2Width(this.value)">
+          <input type="submit" id="clipplayer_startbutton" class="button" value="再生">
+        </form>
+        <div class="form_box">
+          <form action="#">
+            <input type="button" id="clipplayer_resetbutton" class="button" value="リセット">
+          </form>
+          <form action="#">
+            <input type="button" id="clipplayer_exportbutton" class="button" value="エクスポート">
+          </form>
+          <form action="#">
+            <input type="button" id="clipplayer_importbutton" class="button" value="インポート">
+          </form>
+          <input type="file" id="clipplayer_file" accept=".json">
+        </div>
       </div>
       <div class="filter_controller">
         明るさ: <input id="brightness_slider" type="range" min="0" max="2" step="0.1" value="1" oninput="updateBrightness(this.value)">

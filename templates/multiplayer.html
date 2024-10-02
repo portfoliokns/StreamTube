@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/style.css">
   <link rel="stylesheet" href="../static/css/multiplayer.css">
+  <script src="../static/js/share.js"></script>
   <script src="../static/js/multiplayer.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <title>StreamTube</title>
@@ -46,14 +47,23 @@
         </div>
       </div>
       <div class="player_controller">
-        <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="number" id="multiplayerheight" class="player_form" placeholder="高さ" value="366">
-        <input type="number" id="multiplayerwidth" class="player_form" placeholder="横幅" value="650">
-        <a href="#" id="multiplayer_startbutton" class="button">再生</a>
-        <a href="#" id="multiplayer_resetbutton" class="button">リセット</a>
+        <form action="#">
+          <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" value="366" oninput="height2Slider(this.value)">
+          <input type="range" id="player_heightslider" min="1" max="732" step="1" value="366" oninput="slider2Height(this.value)">
+          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" value="650" oninput="width2Slider(this.value)">
+          <input type="range" id="player_widthslider" min="1" max="1300" step="1" value="650" oninput="slider2Width(this.value)">
+
+          <input type="submit" id="multiplayer_startbutton" class="button" value="再生">
+        </form>
+        <div class="form_box">
+          <form action="#">
+            <input type="submit" id="multiplayer_resetbutton" class="button" value="リセット">
+          </form>
+        </div>
       </div>
     </div>
   </div>
