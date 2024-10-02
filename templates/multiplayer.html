@@ -46,14 +46,20 @@
         </div>
       </div>
       <div class="player_controller">
-        <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
-        <input type="number" id="multiplayerheight" class="player_form" placeholder="高さ" value="366">
-        <input type="number" id="multiplayerwidth" class="player_form" placeholder="横幅" value="650">
-        <a href="#" id="multiplayer_startbutton" class="button">再生</a>
-        <a href="#" id="multiplayer_resetbutton" class="button">リセット</a>
+        <form action="#">
+          <input type="text" id="multiplayertext0" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext1" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext2" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="text" id="multiplayertext3" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+          <input type="number" id="multiplayerheight" class="player_form" placeholder="高さ" value="366">
+          <input type="number" id="multiplayerwidth" class="player_form" placeholder="横幅" value="650">
+          <input type="submit" id="multiplayer_startbutton" class="button" value="再生">
+        </form>
+        <div class="form_box">
+          <form action="#">
+            <input type="submit" id="multiplayer_resetbutton" class="button" value="リセット">
+          </form>
+        </div>
       </div>
     </div>
   </div>
