@@ -17,8 +17,8 @@ window.onload = function() {
     var startTime = time2seconds(start)
     var endTime = time2seconds(end)
 
-    var height = document.getElementById('clipplayer_height').value
-    var width = document.getElementById('clipplayer_width').value
+    var height = document.getElementById('player_height').value
+    var width = document.getElementById('player_width').value
 
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();
@@ -30,8 +30,8 @@ window.onload = function() {
     document.getElementById('clipplayer_url').value = ""
     document.getElementById('clipplayer_starttime').value = "00:00:00:00"
     document.getElementById('clipplayer_endtime').value = "00:01:00:00"
-    document.getElementById('clipplayer_height').value = "671"
-    document.getElementById('clipplayer_width').value = "1192"
+    document.getElementById('player_height').value = "671"
+    document.getElementById('player_width').value = "1192"
     initClipPlayer();
     clearInterval(loopInterval);
 
@@ -44,8 +44,8 @@ window.onload = function() {
     var url = document.getElementById('clipplayer_url').value
     var startTime = document.getElementById('clipplayer_starttime').value
     var endTime = document.getElementById('clipplayer_endtime').value
-    var height = document.getElementById('clipplayer_height').value
-    var width = document.getElementById('clipplayer_width').value
+    var height = document.getElementById('player_height').value
+    var width = document.getElementById('player_width').value
     if (!url || !startTime || !endTime || !height || !width) {
       alert('パラメータが正しく入力されていません。正しい値を入力してください。')
       return;
@@ -80,8 +80,8 @@ window.onload = function() {
           document.getElementById('clipplayer_url').value = importedHistory[0].url;
           document.getElementById('clipplayer_starttime').value = importedHistory[0].startTime;
           document.getElementById('clipplayer_endtime').value = importedHistory[0].endTime;
-          document.getElementById('clipplayer_height').value = importedHistory[0].height;
-          document.getElementById('clipplayer_width').value = importedHistory[0].width;
+          document.getElementById('player_height').value = importedHistory[0].height;
+          document.getElementById('player_width').value = importedHistory[0].width;
 
           var brightness = importedHistory[0].brightness;
           var contrast = importedHistory[0].contrast;

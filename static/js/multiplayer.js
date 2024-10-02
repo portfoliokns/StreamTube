@@ -19,8 +19,8 @@ window.onload = function() {
       startTime = url2startTime(url);
       startTimes.push(startTime);
     }
-    var height = document.getElementById('multiplayerheight').value;
-    var width = document.getElementById('multiplayerwidth').value;
+    var height = document.getElementById('player_height').value;
+    var width = document.getElementById('player_width').value;
 
     setMultiPlayers(videoIDs, startTimes, height, width);
   })
@@ -34,8 +34,8 @@ window.onload = function() {
     }
     initMultiPlayers()
 
-    document.getElementById('clipplayer_height').value = "671"
-    document.getElementById('clipplayer_width').value = "1192"
+    document.getElementById('player_height').value = "671"
+    document.getElementById('player_width').value = "1192"
   })
 
   console.log('Web Browser Is Ready');
