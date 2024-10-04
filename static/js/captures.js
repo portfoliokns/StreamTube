@@ -10,6 +10,9 @@ window.onload = function() {
   var captureInterval
   var screenshots = []
 
+  //状態遷移(start)
+  statusController.changeStatus(capture_status.start);
+
   capture_button.addEventListener('click', async function() {
     try{
       //スクリーンキャプチャを設定
@@ -18,6 +21,10 @@ window.onload = function() {
         audio: false,
       });
 
+      //状態遷移(capturing)
+      statusController.changeStatus(capture_status.capturing);
+
+      //キャプチャを初期化
       screenshots = []
 
       //ビデオタグ設定
@@ -56,13 +63,14 @@ window.onload = function() {
       });
     } catch (error) {
       console.error(error);
-      alert('画面キャプチャに失敗しました。システムやブラウザの設定を確認してください。');
     }
   })
 
   stop_button.addEventListener('click', function() {
     stream.getTracks().forEach(track => track.stop());
     clearInterval(captureInterval);
+    //状態遷移(download)
+    statusController.changeStatus(capture_status.downloading);
   })
 
   download_button.addEventListener('click', function() {
@@ -82,3 +90,47 @@ window.onload = function() {
   console.log('Web Browser Is Ready');
   alert('このキャプチャ機能はブラウザ上の画面やPC上の画面を読み取る必要があるため、プライバシーとセキュリティに関する設定で読み取りの許可が必要になります。またキャプチャする場合は著作権等、法令に基づいた使用を心がけてください。キャプチャ機能を用いたことによるトラブル・被害・損害等について、このアプリの開発者は一切関与致しません。');
 }
+
+class htmlClass {
+  changeStart(){
+    capture_button.style.display = 'block';
+    stop_button.style.display = 'none';
+    download_button.style.display = 'none';
+  }
+  changeCapturing(){
+    capture_button.style.display = 'none';
+    stop_button.style.display = 'block';
+    download_button.style.display = 'none';
+  }
+  changeDownloading(){
+    capture_button.style.display = 'block';
+    stop_button.style.display = 'none';
+    download_button.style.display = 'block';
+  }
+}
+
+//キャプチャのステータス
+const capture_status = {
+  start: "現在、撮影準備の状態です",
+  capturing: "現在、撮影中です",
+  downloading: "現在、ダウンロードできます",
+}
+class statusClass {
+  constructor() {
+    this.status = capture_status.capturing;
+  }
+
+  changeStatus(status) {
+    this.status = status;
+    var htmlController = new htmlClass()
+    if (capture_status.capturing == status) {
+      htmlController.changeCapturing()
+    } else if(capture_status.downloading == status) {
+      htmlController.changeDownloading()
+    } else {
+      htmlController.changeStart()
+    }
+  }
+}
+// var htmlController = new htmlClass()
+var statusController = new statusClass()
