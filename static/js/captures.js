@@ -2,6 +2,9 @@ window.onload = function() {
   var capture_button = document.getElementById('capture_button');
   var stop_button = document.getElementById('stop_button');
   var download_button = document.getElementById('download_button');
+  var captures_capture_time = document.getElementById('captures_capture_time');
+  var captures_download_time = document.getElementById('captures_download_time');
+  var captures_counter = document.getElementById('captures_counter');
   var screenshot = document.getElementById('screenshot');
   var stream
   var captureInterval
@@ -14,6 +17,8 @@ window.onload = function() {
         video: true,
         audio: false,
       });
+
+      screenshots = []
 
       //ビデオタグ設定
       var video = document.createElement('video');
@@ -29,7 +34,8 @@ window.onload = function() {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
 
-        count = 0
+        var count = 0
+        var time = 1000 * captures_capture_time.value
         // 1秒ごとに実行
         captureInterval = setInterval(() => {
           // canvasにフレームを描画
@@ -41,8 +47,11 @@ window.onload = function() {
           //キャプチャした画像を保存ように配列に入れる
           screenshots.push(canvas.toDataURL('image/png'));
 
+          //キャプチャした画像の数を表示する
+          captures_counter.innerText = screenshots.length
+
           count += 1;
-        }, 1000);
+        }, time);
       
       });
     } catch (error) {
@@ -57,6 +66,7 @@ window.onload = function() {
   })
 
   download_button.addEventListener('click', function() {
+    var time = 1000 * captures_download_time.value
     screenshots.forEach((dataURL, index) => {
       setTimeout(() => {
         const downloadLink = document.createElement('a');
@@ -65,7 +75,7 @@ window.onload = function() {
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
-      }, index * 500)
+      }, index * time)
     })
   })
 

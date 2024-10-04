@@ -1,0 +1,27 @@
+/* capture.cssをベースに、capturesで個別に必要設定をこのCSSで行っています */
+
+.captures_counter_form{
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.captures_counter{
+  color: brown;
+  font-weight: 600;
+}
+
+.captures_setting_form{
+  display: flex;
+  align-items: center;
+}
+
+.captures_time_form{
+  width: 50px;
+  padding: 5px;
+  margin: 5px 30px 5px 5px;
+}
+
+.captures_time_form:last-child {
+  margin-right: 5px;
+}
