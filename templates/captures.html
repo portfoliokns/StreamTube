@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/capture.css">
+  <link rel="stylesheet" href="../static/css/captures.css">
+  <script src="../static/js/captures.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <title>Captures</title>
+  
+</head>
+<body>
+  <header>
+    <a href="/StreamTube/" class="icon">StreamTube</a>
+    <div class="header_links">
+      <a href="/StreamTube/templates/multiplayer.html" class="header_link">マルチ視聴</a>
+      <a href="/StreamTube/templates/clipplayer.html" class="header_link">クリップ視聴</a>
+      <a href="/StreamTube/templates/capture.html" class="header_link" target="_blank">キャプチャ機能</a>
+      <a href="/StreamTube/templates/captures.html" class="header_link" target="_blank">連続キャプチャ機能</a>
+      <a href="https://github.com/portfoliokns/StreamTube" class="header_link">About</a>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="capture_block">
+      <div class="player_title">
+        連続キャプチャ
+      </div>
+      <div class="buttons">
+        <a href="#" id="capture_button" class="button">撮影開始</a>
+        <a href="#" id="stop_button" class="button">撮影終了</a>
+        <a href="#" id="download_button" class="button">ダウンロード</a>
+      </div>
+      <div class="captures_setting_form">
+        撮影間隔（秒数）：<input type="number" id="captures_capture_time" class="captures_time_form" min="1" max="100" step="1" value="1">
+        ダウンロード間隔（秒数）：<input type="number" id="captures_download_time" class="captures_time_form" min="1" max="100" step="1" value="1">
+      </div>
+      
+      <div class="captures_counter_form">
+        現在、
+        <div id="captures_counter" class="captures_counter">0</div>
+        枚の画像が一時的にキャッシュされています。※ダウンロードを行わないと完全に保存されません。
+      </div>
+      <canvas id="canvas"></canvas>
+      <div class="capture_image">
+        <img id="screenshot" class="screenshot" alt="「撮影開始」ボタンからキャプチャしたい画面を共有すると、撮影が開始されます。キャプチャした画像はここにサンプルとして表示されます。なお表示されたサンプル画像は実際の画像より小さく表示されます。撮影し終えたら、「撮影終了」ボタンを押し、「ダウンロード」ボタンから画像をダウンロードしてください。もう一度、撮影を開始した場合、キャッシュしている画像は削除されます。"/>
+      </div>
+    </div>
+    
+  </div>
+
+  <footer>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </footer>
+</body>
+</html>
