@@ -8,13 +8,11 @@ window.onload = function() {
     var url = wayback_url.value
     if (!url) return
     
-
-
-    
+    videoID = url2videoID(url);
+    url = "https://web.archive.org/web/2oe_/http://wayback-fakeurl.archive.org/yt/" + videoID;
     window.open(url, '_blank')
 
   })
-
 
   console.log('Web Browser Is Ready');
 }
