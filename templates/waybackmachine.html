@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/style.css">
-  <link rel="stylesheet" href="../static/css/capture.css">
-  <script src="../static/js/capture.js"></script>
-  <title>Capture</title>
+  <link rel="stylesheet" href="../static/css/waybackmachine.css">
+  <script src="../static/js/share.js"></script>
+  <script src="../static/js/waybackmachine.js"></script>
+  <title>StreamTube</title>
   
 </head>
 <body>
@@ -23,20 +24,18 @@
   </header>
 
   <div class="main">
-    <div class="capture_block">
+    <div class="maybackmachine_blocks">
+
       <div class="player_title">
-        キャプチャ
+        Wayback Machine 検索
       </div>
-      <div class="buttons">
-        <a href="#" id="capture_button" class="button">撮影</a>
-        <a href="#" id="download_button" class="button">ダウンロード</a>
-      </div>
-      <canvas id="canvas"></canvas>
-      <div class="capture_image">
-        <img id="screenshot" class="screenshot" alt="「撮影」ボタンからキャプチャしたい画面を共有すると、ここにサンプルとして表示されます。表示されたサンプル画像は実際の画像より小さく表示されます。"/>
-      </div>
+
+      <form action="#">
+        <input type="text" id="wayback_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
+        <input type="submit" id="wayback_search_button" class="button" value="検索">
+      </form>
+
     </div>
-    
   </div>
 
   <footer>
