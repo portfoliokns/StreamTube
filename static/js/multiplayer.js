@@ -34,8 +34,8 @@ window.onload = function() {
     }
     initMultiPlayers()
 
-    document.getElementById('player_height').value = "671"
-    document.getElementById('player_width').value = "1192"
+    document.getElementById('player_height').value = "366"
+    document.getElementById('player_width').value = "650"
   })
 
   console.log('Web Browser Is Ready');
