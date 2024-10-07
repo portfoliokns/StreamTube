@@ -36,6 +36,8 @@ window.onload = function() {
     document.getElementById('clipplayer_endtime').value = "00:01:00:00"
     document.getElementById('player_height').value = "600"
     document.getElementById('player_width').value = "1064"
+    document.getElementById('clipplayer_frame').style.height = "0px"
+    document.getElementById('clipplayer_frame').style.width = "0px"
     initClipPlayer();
     clearInterval(loopInterval);
 

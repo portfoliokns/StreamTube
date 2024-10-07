@@ -111,4 +111,5 @@ form {
 .form_box{
   display: flex;
   align-items: center;
+  background-color: rgba(107, 180, 194, 0.82);
 }

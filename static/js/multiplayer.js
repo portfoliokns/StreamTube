@@ -1,3 +1,4 @@
+max_players = 4;
 window.onload = function() {
   var multiplayer_start_button = document.getElementById('multiplayer_startbutton');
   var multiplayer_reset_button = document.getElementById('multiplayer_resetbutton');
@@ -11,7 +12,7 @@ window.onload = function() {
     var url
     var videoID
     var startTime
-    for (var i = 0; i < 4; i++ ) {
+    for (var i = 0; i < max_players; i++ ) {
       str = 'multiplayertext' + i;
       url = document.getElementById(str).value;
       videoID = url2videoID(url);
@@ -34,7 +35,7 @@ window.onload = function() {
   multiplayer_reset_button.addEventListener('click', function(event) {
     event.preventDefault();
 
-    for (var i = 0; i < 4; i++ ) {
+    for (var i = 0; i < max_players; i++ ) {
       str = 'multiplayertext' + i
       document.getElementById(str).value = ""
     }
@@ -42,6 +43,12 @@ window.onload = function() {
 
     document.getElementById('player_height').value = "366"
     document.getElementById('player_width').value = "650"
+    multiplayers = document.querySelectorAll(".multiplayer")
+    for ( var i = 0; i < max_players; i++ ) {
+      multiplayers[i].style.height = "0px";
+      multiplayers[i].style.width = "0px";
+    }
+
   })
 
   console.log('Web Browser Is Ready');
@@ -52,7 +59,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function initMultiPlayers() {
-  for ( var i = 0; i < 4; i++ ) {
+  for ( var i = 0; i < max_players; i++ ) {
     if (players[i]) {
       players[i].destroy();
       players[i] = null;
