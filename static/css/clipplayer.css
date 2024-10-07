@@ -6,9 +6,17 @@
 }
 
 .clipplayer{
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  height: 600px;
+  width: 1064px;
 }
 
 .filter_controller{
   
+}
+
+#clipplayer {
+  position: absolute;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  left: 300vw;
 }

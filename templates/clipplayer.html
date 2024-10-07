@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/style.css">
   <link rel="stylesheet" href="../static/css/clipplayer.css">
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
   <script src="../static/js/share.js"></script>
   <script src="../static/js/clipplayer.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -29,16 +30,18 @@
       <div class="player_title">
         クリッププレーヤー
       </div>
-      <div id="clipplayer" class="clipplayer"></div>
+      <div id="clipplayer_frame" class="clipplayer">
+        <div id="clipplayer"></div>
+      </div>
       <div class="player_controller">
         <form action="#">
           <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
           開始時刻:<input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
           終了時刻:<input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:01:00:00">
-          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" value="671" oninput="height2Slider(this.value)">
-          <input type="range" id="player_heightslider" min="1" max="1342" step="1" value="671" oninput="slider2Height(this.value)">
-          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" value="1192" oninput="width2Slider(this.value)">
-          <input type="range" id="player_widthslider" min="1" max="2384" step="1" value="1192" oninput="slider2Width(this.value)">
+          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" min="1" max="1200" step="1" value="600" oninput="height2Slider(this.value)">
+          <input type="range" id="player_heightslider" min="1" max="1200" step="1" value="600" oninput="slider2Height(this.value)">
+          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" min="1" max="2128" step="1" value="1064" oninput="width2Slider(this.value)">
+          <input type="range" id="player_widthslider" min="1" max="2128" step="1" value="1064" oninput="slider2Width(this.value)">
           <input type="submit" id="clipplayer_startbutton" class="button" value="再生">
         </form>
         <div class="form_box">

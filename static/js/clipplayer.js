@@ -17,8 +17,13 @@ window.onload = function() {
     var startTime = time2seconds(start)
     var endTime = time2seconds(end)
 
-    var height = document.getElementById('player_height').value
-    var width = document.getElementById('player_width').value
+    var height = document.getElementById('player_height').value;
+    var width = document.getElementById('player_width').value;
+
+    var clipplayer = document.getElementById('clipplayer_frame');
+    clipplayer.style.height = height + "px";
+    clipplayer.style.width = width + "px";
+    console.log(width,height)
 
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();
@@ -30,8 +35,8 @@ window.onload = function() {
     document.getElementById('clipplayer_url').value = ""
     document.getElementById('clipplayer_starttime').value = "00:00:00:00"
     document.getElementById('clipplayer_endtime').value = "00:01:00:00"
-    document.getElementById('player_height').value = "671"
-    document.getElementById('player_width').value = "1192"
+    document.getElementById('player_height').value = "600"
+    document.getElementById('player_width').value = "1064"
     initClipPlayer();
     clearInterval(loopInterval);
 
@@ -152,6 +157,9 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
         'onReady': function(event) {
           event.target.seekTo(startTime);
           event.target.playVideo();
+          $("#clipplayer").animate({
+            left: '0px'
+          },400)
         },
         'onStateChange': function(event) {
           if (event.data == YT.PlayerState.PLAYING) {
@@ -161,7 +169,7 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
               if (currentTime >= endTime || currentTime < startTime) {
                 player.seekTo(startTime);
               }
-            },100)  
+            },100)
           } else {
             clearInterval(loopInterval);
           }
