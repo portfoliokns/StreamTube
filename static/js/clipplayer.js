@@ -11,14 +11,19 @@ window.onload = function() {
     var videoID
     url = document.getElementById('clipplayer_url').value
     videoID = url2videoID(url)
+    if (!videoID) return;
 
     var start = document.getElementById('clipplayer_starttime').value;
     var end = document.getElementById('clipplayer_endtime').value;
     var startTime = time2seconds(start)
     var endTime = time2seconds(end)
 
-    var height = document.getElementById('player_height').value
-    var width = document.getElementById('player_width').value
+    var height = document.getElementById('player_height').value;
+    var width = document.getElementById('player_width').value;
+
+    var clipplayer = document.getElementById('clipplayer_frame');
+    clipplayer.style.height = height + "px";
+    clipplayer.style.width = width + "px";
 
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();
@@ -30,8 +35,10 @@ window.onload = function() {
     document.getElementById('clipplayer_url').value = ""
     document.getElementById('clipplayer_starttime').value = "00:00:00:00"
     document.getElementById('clipplayer_endtime').value = "00:01:00:00"
-    document.getElementById('player_height').value = "671"
-    document.getElementById('player_width').value = "1192"
+    document.getElementById('player_height').value = "600"
+    document.getElementById('player_width').value = "1064"
+    document.getElementById('clipplayer_frame').style.height = "0px"
+    document.getElementById('clipplayer_frame').style.width = "0px"
     initClipPlayer();
     clearInterval(loopInterval);
 
@@ -116,16 +123,6 @@ function initClipPlayer() {
   }
 }
 
-// function url2videoID(url){
-//   var videoID = ""
-//   if (url.includes('?v=')) {
-//     videoID = url.split("?v=")[1].split("&")[0];
-//   } else if (url.includes('?si=')) {
-//     videoID = url.split("?si=")[0].split("/")[3];
-//   }
-//   return videoID;
-// }
-
 //ミリ病を数値に変換
 function time2seconds(time) {
   const parts = time.split(':').map(Number)
@@ -162,6 +159,9 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
         'onReady': function(event) {
           event.target.seekTo(startTime);
           event.target.playVideo();
+          $("#clipplayer").animate({
+            left: '0px'
+          },400)
         },
         'onStateChange': function(event) {
           if (event.data == YT.PlayerState.PLAYING) {
@@ -171,7 +171,7 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
               if (currentTime >= endTime || currentTime < startTime) {
                 player.seekTo(startTime);
               }
-            },100)  
+            },100)
           } else {
             clearInterval(loopInterval);
           }

@@ -5,10 +5,17 @@
   margin-top: 10px;
 }
 
-.clipplayer{
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+.clipplayer_frame{
+  position: relative;
 }
 
 .filter_controller{
-  
+  background-color: rgba(194, 148, 107, 0.82);
+  padding: 2px 5px;
+}
+
+#clipplayer {
+  position: absolute;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  left: 300vw;
 }

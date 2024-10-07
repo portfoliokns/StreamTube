@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   padding-bottom: 5px;
+  background-color: rgba(107, 180, 194, 0.82);
+  margin-bottom: 2px;
 }
 
 .captures_counter{
@@ -14,6 +16,9 @@
 .captures_setting_form{
   display: flex;
   align-items: center;
+  background-color: rgba(107, 180, 194, 0.82);
+  padding: 2px 5px;
+  margin-bottom: 2px;
 }
 
 .captures_time_form{
