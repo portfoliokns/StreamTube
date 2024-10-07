@@ -16,14 +16,20 @@ window.onload = function() {
       str = 'multiplayertext' + i;
       url = document.getElementById(str).value;
       videoID = url2videoID(url);
+      if (!videoID) continue;
       videoIDs.push(videoID);
       startTime = url2startTime(url);
       startTimes.push(startTime);
     }
-    var height = document.getElementById('player_height').value;
-    var width = document.getElementById('player_width').value;
 
     multiplayers = document.querySelectorAll(".multiplayer")
+    for ( var i = 0; i < max_players; i++ ) {
+      multiplayers[i].style.height = "0px";
+      multiplayers[i].style.width = "0px";
+    }
+
+    var height = document.getElementById('player_height').value;
+    var width = document.getElementById('player_width').value;
 
     for ( var i = 0; i < videoIDs.length; i++ ) {
       multiplayers[i].style.height = height + "px";

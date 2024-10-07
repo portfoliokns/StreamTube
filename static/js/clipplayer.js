@@ -11,6 +11,7 @@ window.onload = function() {
     var videoID
     url = document.getElementById('clipplayer_url').value
     videoID = url2videoID(url)
+    if (!videoID) return;
 
     var start = document.getElementById('clipplayer_starttime').value;
     var end = document.getElementById('clipplayer_endtime').value;
