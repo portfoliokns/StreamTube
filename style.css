@@ -91,8 +91,10 @@ a:hover {
   justify-content: center;
 }
 
-.player_title{
+.title{
   font-size: 22px;
+  background-color: rgba(107, 180, 194, 0.82);
+  padding: 0 4px;
 }
 
 .news_box{

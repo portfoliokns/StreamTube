@@ -102,6 +102,12 @@ a:hover {
   margin: 5px;
 }
 
+form {
+  background-color: rgba(107, 180, 194, 0.82);
+  padding: 2px 5px;
+  margin-bottom: 2px;
+}
+
 .form_box{
   display: flex;
   align-items: center;

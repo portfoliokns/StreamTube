@@ -12,7 +12,8 @@
 }
 
 .filter_controller{
-  
+  background-color: rgba(194, 148, 107, 0.82);
+  padding: 2px 5px;
 }
 
 #clipplayer {
