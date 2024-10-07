@@ -17,6 +17,16 @@
 }
 
 .multiplayer{
+  position: relative;
   display: flex;
+}
+
+#multiplayer1,#multiplayer0,#multiplayer2,#multiplayer3 {
+  position: absolute;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
+
+#multiplayer0 { left: 300vw; }
+#multiplayer1 { left: 300vw; }
+#multiplayer2 { left: 300vw; }
+#multiplayer3 { left: 300vw; }

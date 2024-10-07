@@ -23,7 +23,6 @@ window.onload = function() {
     var clipplayer = document.getElementById('clipplayer_frame');
     clipplayer.style.height = height + "px";
     clipplayer.style.width = width + "px";
-    console.log(width,height)
 
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();

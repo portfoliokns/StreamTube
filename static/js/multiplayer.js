@@ -22,6 +22,12 @@ window.onload = function() {
     var height = document.getElementById('player_height').value;
     var width = document.getElementById('player_width').value;
 
+    multiplayers = document.querySelectorAll(".multiplayer")
+
+    for ( var i = 0; i < videoIDs.length; i++ ) {
+      multiplayers[i].style.height = height + "px";
+      multiplayers[i].style.width = width + "px";
+    }
     setMultiPlayers(videoIDs, startTimes, height, width);
   })
 
@@ -54,16 +60,6 @@ function initMultiPlayers() {
   }
 }
 
-// function url2videoID(url){
-//   var videoID = ""
-//   if (url.includes('?v=')) {
-//     videoID = url.split("?v=")[1].split("&")[0];
-//   } else if (url.includes('?si=')) {
-//     videoID = url.split("?si=")[0].split("/")[3];
-//   }
-//   return videoID;
-// }
-
 function url2startTime(url) {
   var startTime = 0
   if (url.includes('?v=') & url.includes('&t=')) {
@@ -78,26 +74,38 @@ var players = [];
 function setMultiPlayers(videoIDs, startTimes, height, width) {
   initMultiPlayers()
   if (videoIDs) {
-    var playerId
-    var startTime
     for ( var i = 0; i < videoIDs.length; i++ ) {
       playerId = "multiplayer" + i
+      playerName = "#multiplayer" + i
       videoId = videoIDs[i]
       startTime = startTimes[i]
       if (!videoId) {
-        continue;
+        return;
       }
-      players[i] = new YT.Player(playerId, {
-        height: height,
-        width: width,
-        videoId: videoId,
-        playerVars: {
-          'autoplay': 1, // 自動再生を有効化
-          'loop': 1, // ループ再生
-          'playlist': videoId, //プレイリスト
-          'start': startTime, //開始時刻 
-        },
-      });
+      setPlayer(i, videoId, startTime, height, width,playerName)
     }
   }
+}
+
+function setPlayer(i, videoId, startTime, height, width,playerName) {
+  players[i] = new YT.Player(playerId, {
+    height: height,
+    width: width,
+    videoId: videoId,
+    playerVars: {
+      'autoplay': 1, // 自動再生を有効化
+      'loop': 1, // ループ再生
+      'playlist': videoId, //プレイリスト
+      'start': startTime, //開始時刻 
+    },
+    events: {
+      'onReady': function(event) {
+        event.target.seekTo(startTime);
+        event.target.playVideo();
+        $(playerName).animate({
+          left: '0px'
+        },400)
+      },
+    }
+  });
 }
