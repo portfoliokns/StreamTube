@@ -360,3 +360,8 @@ function inverted() {
   var scale = "scale(" + X + "," + Y + ")"
   clipplayer.style.transform = scale;
 }
+
+function rotatePlayer(value) {
+  var clipplayer = document.getElementById('clipplayer');
+  clipplayer.style.transform =  "rotate(" + value + "deg)"
+}
