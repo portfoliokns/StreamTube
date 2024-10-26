@@ -336,3 +336,27 @@ function importFilters(brightness, contrast, saturate, grayscale, sepia, hue, in
   updateBlur(blur);
   updateOpacity(opacity);
 }
+
+function inverted() {
+  var clipplayer = document.getElementById('clipplayer');
+  var checkbox_leftright = document.getElementById('checkbox_leftright');
+  var checkbox_updown = document.getElementById('checkbox_updown');
+
+  var X
+  var Y
+
+  if (checkbox_leftright.checked) {
+    X = "-1"
+  } else {
+    X = "1"
+  }
+
+  if (checkbox_updown.checked) {
+    Y = "-1"
+  } else {
+    Y = "1"
+  }
+
+  var scale = "scale(" + X + "," + Y + ")"
+  clipplayer.style.transform = scale;
+}
