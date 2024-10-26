@@ -39,6 +39,10 @@ window.onload = function() {
     document.getElementById('player_width').value = "1064"
     document.getElementById('clipplayer_frame').style.height = "0px"
     document.getElementById('clipplayer_frame').style.width = "0px"
+    document.getElementById('checkbox_leftright').checked = false;
+    document.getElementById('checkbox_updown').checked = false;
+    document.getElementById('rotate_slider').value = 0;
+
     initClipPlayer();
     clearInterval(loopInterval);
 

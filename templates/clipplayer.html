@@ -66,6 +66,8 @@
         階調: <input id="invert_slider" type="range" min="0" max="1" step="0.1" value="0" oninput="updateInvert(this.value)">
         ぼかし: <input id="blur_slider" type="range" min="0" max="10" step="0.1" value="0" oninput="updateBlur(this.value)">
         透明度: <input id="opacity_slider" type="range" min="0" max="1" step="0.1" value="1" oninput="updateOpacity(this.value)">
+      </div>
+      <div class="filter_controller">
         上下反転：<input id="checkbox_updown" type="checkbox" oninput="inverted()">
         左右反転：<input id="checkbox_leftright" type="checkbox" oninput="inverted()">
         回転: <input id="rotate_slider" type="range" min="0" max="360" step="0.1" value="0" oninput="rotatePlayer(this.value)">
