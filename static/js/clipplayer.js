@@ -369,3 +369,12 @@ function rotatePlayer(value) {
   var clipplayer = document.getElementById('clipplayer');
   clipplayer.style.transform =  "rotate(" + value + "deg)"
 }
+
+function sizeChange(value) {
+  height = document.getElementById('player_height').value;
+  width = document.getElementById('player_width').value;
+
+  var clipplayer = document.getElementById('clipplayer');
+  clipplayer.style.height = height + "px";
+  clipplayer.style.width = width + "px";
+}

@@ -35,10 +35,10 @@
           <input type="text" id="clipplayer_url" class="player_url" placeholder="YouTube動画のURLを貼り付けて" value="">
           開始時刻:<input type="text" id="clipplayer_starttime" class="player_time" placeholder="hh:mm:ss:ms" value="00:00:00:00">
           終了時刻:<input type="text" id="clipplayer_endtime" class="player_time" placeholder="hh:mm:ss:ms" value="00:01:00:00">
-          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" min="1" max="1200" step="1" value="600" oninput="height2Slider(this.value)">
-          <input type="range" id="player_heightslider" min="1" max="1200" step="1" value="600" oninput="slider2Height(this.value)">
-          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" min="1" max="2128" step="1" value="1064" oninput="width2Slider(this.value)">
-          <input type="range" id="player_widthslider" min="1" max="2128" step="1" value="1064" oninput="slider2Width(this.value)">
+          高さ:<input type="number" id="player_height" class="player_form" placeholder="高さ" min="1" max="1200" step="1" value="600" oninput="height2Slider(this.value);sizeChange()">
+          <input type="range" id="player_heightslider" min="1" max="1200" step="1" value="600" oninput="slider2Height(this.value);sizeChange()">
+          幅:<input type="number" id="player_width" class="player_form" placeholder="横幅" min="1" max="2128" step="1" value="1064" oninput="width2Slider(this.value);sizeChange()">
+          <input type="range" id="player_widthslider" min="1" max="2128" step="1" value="1064" oninput="slider2Width(this.value);sizeChange()">
           <input type="submit" id="clipplayer_startbutton" class="button" value="再生">
         </form>
         <div class="form_box">
