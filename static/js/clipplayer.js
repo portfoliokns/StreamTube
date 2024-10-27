@@ -25,6 +25,15 @@ window.onload = function() {
     clipplayer.style.height = height + "px";
     clipplayer.style.width = width + "px";
 
+    var checkbox_updown = document.getElementById('checkbox_updown');
+    var checkbox_leftright = document.getElementById('checkbox_leftright');
+    checkbox_updown.checked = false;
+    checkbox_leftright.checked = false;
+
+    var rotate_slider = document.getElementById('rotate_slider');
+    rotate_slider.value = 0;
+    rotate_slider.dispatchEvent(new Event('input'));
+
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();
   })
@@ -39,6 +48,10 @@ window.onload = function() {
     document.getElementById('player_width').value = "1064"
     document.getElementById('clipplayer_frame').style.height = "0px"
     document.getElementById('clipplayer_frame').style.width = "0px"
+    document.getElementById('checkbox_leftright').checked = false;
+    document.getElementById('checkbox_updown').checked = false;
+    document.getElementById('rotate_slider').value = 0;
+
     initClipPlayer();
     clearInterval(loopInterval);
 
@@ -335,4 +348,46 @@ function importFilters(brightness, contrast, saturate, grayscale, sepia, hue, in
   updateInvert(invert);
   updateBlur(blur);
   updateOpacity(opacity);
+}
+
+function inverted() {
+  var clipplayer = document.getElementById('clipplayer');
+  var checkbox_leftright = document.getElementById('checkbox_leftright');
+  var checkbox_updown = document.getElementById('checkbox_updown');
+
+  var X
+  var Y
+
+  if (checkbox_leftright.checked) {
+    X = "-1"
+  } else {
+    X = "1"
+  }
+
+  if (checkbox_updown.checked) {
+    Y = "-1"
+  } else {
+    Y = "1"
+  }
+
+  var scale = "scale(" + X + "," + Y + ")"
+  clipplayer.style.transform = scale;
+}
+
+function rotatePlayer(value) {
+  var clipplayer = document.getElementById('clipplayer');
+  clipplayer.style.transform =  "rotate(" + value + "deg)"
+}
+
+function sizeChange(value) {
+  height = document.getElementById('player_height').value;
+  width = document.getElementById('player_width').value;
+
+  var clipplayer = document.getElementById('clipplayer');
+  clipplayer.style.height = height + "px";
+  clipplayer.style.width = width + "px";
+
+  var clipplayer_frame = document.getElementById('clipplayer_frame');
+  clipplayer_frame.style.height = height + "px";
+  clipplayer_frame.style.width = width + "px";
 }
