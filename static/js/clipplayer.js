@@ -377,4 +377,8 @@ function sizeChange(value) {
   var clipplayer = document.getElementById('clipplayer');
   clipplayer.style.height = height + "px";
   clipplayer.style.width = width + "px";
+
+  var clipplayer_frame = document.getElementById('clipplayer_frame');
+  clipplayer_frame.style.height = height + "px";
+  clipplayer_frame.style.width = width + "px";
 }
