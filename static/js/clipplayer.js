@@ -25,6 +25,15 @@ window.onload = function() {
     clipplayer.style.height = height + "px";
     clipplayer.style.width = width + "px";
 
+    var checkbox_updown = document.getElementById('checkbox_updown');
+    var checkbox_leftright = document.getElementById('checkbox_leftright');
+    checkbox_updown.checked = false;
+    checkbox_leftright.checked = false;
+
+    var rotate_slider = document.getElementById('rotate_slider');
+    rotate_slider.value = 0;
+    rotate_slider.dispatchEvent(new Event('input'));
+
     setClipPlayer(videoID, startTime, endTime, height, width)
     applyFilters();
   })
