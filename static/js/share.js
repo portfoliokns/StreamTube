@@ -24,6 +24,7 @@ function url2videoID(url){
   if (URL.canParse(url)) {
     const url_instance = new URL(url)
     videoID = url_instance.searchParams.get("v");
+    if (url.includes('?si=')) videoID = url.split("?si=")[0].split("/")[3];
   }
 
   return videoID;
