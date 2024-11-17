@@ -8,10 +8,15 @@ window.onload = function() {
     event.preventDefault();
 
     var url
-    var videoID
     url = document.getElementById('clipplayer_url').value
-    videoID = url2videoID(url)
-    if (!videoID) return;
+    var videoID = url2videoID(url)
+    if (!videoID) {
+      document.getElementById('clipplayer_frame').style.height = "0px"
+      document.getElementById('clipplayer_frame').style.width = "0px"
+      initClipPlayer();
+      clearInterval(loopInterval);
+      return
+    };
 
     var start = document.getElementById('clipplayer_starttime').value;
     var end = document.getElementById('clipplayer_endtime').value;
@@ -158,7 +163,6 @@ function setClipPlayer(videoId, startTime, endTime, height, width) {
   //プレーヤー/インターバルを初期化
   initClipPlayer();
   clearInterval(loopInterval);
-
   if (videoId) {
     player = new YT.Player('clipplayer', {
       height: height,
