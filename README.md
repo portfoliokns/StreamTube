@@ -11,7 +11,7 @@
   - ダウンロード機能
 - Wayback検索
 
-※状況に応じて、機能をアップデートしていく予定です。
+※当面、新規機能のアップデートはありません。
 
 # 各種機能について
 ## トップページについて
@@ -43,7 +43,7 @@ Wayback Machine上にyoutubeの動画が存在するかどうかを検索する�
 - PCとブラウザ（Google Chrome）をご用意ください。
 - 視聴したい動画のURLを準備してください。
 - 次のURLへアクセスしてください。
-https://portfoliokns.github.io/StreamTube/
+https://portfoliokns.github.io/StreetTube/
 
 # 使い方
 ## 基本操作について
